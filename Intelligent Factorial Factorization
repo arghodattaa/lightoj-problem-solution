@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+#include<bits/stdc++.h>
+void made(int x, vector<int> &vec){
+    int i=2;
+   while(i<=x){
+     if(x%i==0){
+        vec.push_back(i);
+        x/=i;
+     }
+     else i++;
+   }
+}
+int main(){
+    int te;
+    cin>>te;
+    int a=1;
+    while(te--){
+            int n;
+             cin>>n;
+ vector<int>fac;
+ for(int i=2;i<=n;i++)
+               made(i,fac);
+    sort(fac.begin(),fac.end());
+    int ans=fac[0],ansn=1;
+    bool ch=false;
+
+    cout<<"Case "<<a<<": "<<n<<" = ";
+  for(int i=1;i<=fac.size();i++){
+     if(fac[i]==ans){
+               ansn++;
+        if(i==fac.size()-1){
+            if(ch)cout<<" * ";
+            cout<<ans<<" ("<<ansn<<")";
+            ch=true;
+        }
+     }
+     else{
+            if(ch)cout<<" * ";
+            cout<<ans<<" ("<<ansn<<")";
+     ch=true;
+        ans=fac[i];ansn=1;
+     }
+
+  }
+  a++;
+        cout<<endl;
+}
+}
