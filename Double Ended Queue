@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+#include<bits/stdc++.h>
+int main(){
+    int te; cin>>te;
+    int i = 1;
+    while (te--){
+            cout<<"Case "<<i<<":\n";
+                i++;
+            deque< int >de;
+        int n , m ;
+        cin >> n >>m ;
+
+        while(m--){
+
+            string s;
+            cin>>s;
+            if( s == "pushLeft"){
+                int a; cin>>a ;
+                if( de.size() ==n)
+                    cout<<"The queue is full\n";
+                else{
+                     de.push_front(a);
+                     cout<<"Pushed in left: "<<a<<"\n";
+                }
+
+            }
+            else if( s == "pushRight"){
+                 int a; cin>>a ;
+                if( de.size() == n)
+                         cout<<"The queue is full\n";
+                else{
+                     de.push_back(a);
+                     cout<<"Pushed in right: "<<a<<"\n";
+                }
+            }
+            else if( s == "popLeft"){
+                 if ( de.size()==0)
+                               cout<<"The queue is empty\n";
+                 else{
+                    cout<<"Popped from left: "<<de.front()<<"\n";
+                    de.pop_front();
+
+                 }
+            }
+            else if( s == "popRight"){
+                 if ( de.size()==0)
+                               cout<<"The queue is empty\n";
+                 else{
+                        cout<<"Popped from right: "<<de.back()<<"\n";
+                    de.pop_back();
+
+                 }
+            }
+        }
+    }
+}
